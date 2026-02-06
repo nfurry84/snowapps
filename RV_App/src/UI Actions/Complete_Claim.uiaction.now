@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui_action>
+  <name>Complete Claim</name>
+  <label>Mark as Complete</label>
+  <table>x_467210_rv_app_glass_claim</table>
+  <condition>glass_claim_status=in_progress</condition>
+  <hover_text>Mark this claim as completed after service is finished</hover_text>
+  <order>300</order>
+  <script>
+    (function() {
+      try {
+        var claimGR = new GlideRecord('x_467210_rv_app_glass_claim');
+        claimGR.get(current.sys_id);
+        
+        // Update status to completed
+        claimGR.glass_claim_status = 'completed';
+        claimGR.completion_date = new GlideDateTime();
+        claimGR.comments = claimGR.comments + '\nService completed and claim closed: ' + claimGR.completion_date;
+        claimGR.update();
+        
+        // Send completion notification to customer
+        var notifGR = new GlideRecord('sys_email');
+        notifGR.initialize();
+        notifGR.recipient = claimGR.contact_email;
+        notifGR.subject = 'Your RV Glass Claim is Complete';
+        notifGR.body = 'Dear ' + claimGR.contact_name + ',\n\n' +
+                      'Your RV glass insurance claim has been completed.\n\n' +
+                      'Claim Number: ' + claimGR.number + '\n' +
+                      'Vehicle: ' + claimGR.vehicle_year + ' ' + claimGR.vehicle_make + ' ' + claimGR.vehicle_model + '\n' +
+                      'Repair Shop: ' + claimGR.shop_contact_name + '\n' +
+                      'Completion Date: ' + claimGR.completion_date + '\n\n' +
+                      'Thank you for using our service.\n\n' +
+                      'Best regards,\nRV Glass Claims Team';
+        notifGR.insert();
+        
+        gs.addInfoMessage('Claim marked as completed. Customer notification sent.');
+      } catch (e) {
+        gs.error('Error completing claim: ' + e.message);
+      }
+    })();
+  </script>
+</ui_action>

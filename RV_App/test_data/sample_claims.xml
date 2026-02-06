@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <x_467210_rv_app_glass_claim>
+    <record>
+      <contact_name>John Smith</contact_name>
+      <contact_email>john.smith@email.com</contact_email>
+      <contact_phone>(555) 123-4567</contact_phone>
+      <contact_address>1234 RV Park Road, Phoenix, AZ 85001</contact_address>
+      <vehicle_year>2018</vehicle_year>
+      <vehicle_make>Winnebago</vehicle_make>
+      <vehicle_model>Vista 30T</vehicle_model>
+      <vin>1WGF16R55JE123456</vin>
+      <glass_type>windshield</glass_type>
+      <claim_type>replacement</claim_type>
+      <damage_description>6-inch starburst crack on driver side of windshield caused by debris on highway</damage_description>
+      <estimated_cost>950.00</estimated_cost>
+      <policy_number>GL-1234567890</policy_number>
+      <plan_name>RV Plus Coverage</plan_name>
+      <deductible_amount>250.00</deductible_amount>
+      <payment_method>credit_card</payment_method>
+      <card_last_four>4242</card_last_four>
+      <glass_claim_status>intake</glass_claim_status>
+      <approval_status>pending</approval_status>
+      <comments>Initial test claim for glass replacement</comments>
+    </record>
+    <record>
+      <contact_name>Sarah Johnson</contact_name>
+      <contact_email>sarah.j@email.com</contact_email>
+      <contact_phone>(555) 234-5678</contact_phone>
+      <contact_address>5678 Campground Lane, Tempe, AZ 85282</contact_address>
+      <vehicle_year>2020</vehicle_year>
+      <vehicle_make>Fleetwood</vehicle_make>
+      <vehicle_model>Discovery 39F</vehicle_model>
+      <vin>1WF15X25JK123456</vin>
+      <glass_type>side_window</glass_type>
+      <claim_type>repair</claim_type>
+      <damage_description>Small chip in passenger side window, about 2 inches</damage_description>
+      <estimated_cost>400.00</estimated_cost>
+      <policy_number>PG-0987654321</policy_number>
+      <plan_name>Standard Coverage</plan_name>
+      <deductible_amount>500.00</deductible_amount>
+      <payment_method>invoice</payment_method>
+      <glass_claim_status>intake</glass_claim_status>
+      <approval_status>pending</approval_status>
+      <comments>Second test claim for window repair</comments>
+    </record>
+    <record>
+      <contact_name>Michael Davis</contact_name>
+      <contact_email>m.davis@email.com</contact_email>
+      <contact_phone>(555) 345-6789</contact_phone>
+      <contact_address>9876 Desert Drive, Chandler, AZ 85224</contact_address>
+      <vehicle_year>2019</vehicle_year>
+      <vehicle_make>Tiffin</vehicle_make>
+      <vehicle_model>Allegro 36LA</vehicle_model>
+      <vin>1G1F1143JK123456</vin>
+      <glass_type>multi</glass_type>
+      <claim_type>both</claim_type>
+      <damage_description>Windshield has multiple cracks, side window completely shattered. Incident: collision at campground</damage_description>
+      <estimated_cost>2200.00</estimated_cost>
+      <policy_number>TF-1357924680</policy_number>
+      <plan_name>Comprehensive Coverage</plan_name>
+      <deductible_amount>100.00</deductible_amount>
+      <payment_method>debit_card</payment_method>
+      <card_last_four>1234</card_last_four>
+      <glass_claim_status>intake</glass_claim_status>
+      <approval_status>pending</approval_status>
+      <comments>High-value claim, multiple glass replacements needed</comments>
+    </record>
+  </x_467210_rv_app_glass_claim>
+</data>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table_schema version="1.0">
+  <table name="x_467210_rv_app_insurance_provider">
+    <label>Insurance Provider</label>
+    <plural>Insurance Providers</plural>
+    <description>Insurance providers and their plan details</description>
+    <fields>
+      <field name="name">
+        <label>Provider Name</label>
+        <type>string</type>
+        <max_length>100</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="phone">
+        <label>Provider Phone</label>
+        <type>phone_number</type>
+      </field>
+      <field name="website">
+        <label>Website</label>
+        <type>string</type>
+        <max_length>255</max_length>
+      </field>
+      <field name="api_key">
+        <label>API Key</label>
+        <type>string</type>
+        <max_length>255</max_length>
+      </field>
+      <field name="api_endpoint">
+        <label>API Endpoint</label>
+        <type>string</type>
+        <max_length>255</max_length>
+      </field>
+      <field name="active">
+        <label>Active</label>
+        <type>boolean</type>
+        <default>true</default>
+      </field>
+      <field name="deductible_options">
+        <label>Available Deductible Options</label>
+        <type>string</type>
+        <max_length>1000</max_length>
+        <hint>Comma-separated values like: 100,250,500,1000</hint>
+      </field>
+    </fields>
+  </table>
+</table_schema>

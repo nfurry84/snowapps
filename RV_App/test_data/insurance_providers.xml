@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <x_467210_rv_app_insurance_provider>
+    <record>
+      <name>GEICO</name>
+      <phone>1-800-861-8380</phone>
+      <website>https://www.geico.com</website>
+      <active>true</active>
+      <deductible_options>100,250,500,1000</deductible_options>
+    </record>
+    <record>
+      <name>State Farm</name>
+      <phone>1-855-733-8723</phone>
+      <website>https://www.statefarm.com</website>
+      <active>true</active>
+      <deductible_options>100,250,500,750,1000</deductible_options>
+    </record>
+    <record>
+      <name>Progressive</name>
+      <phone>1-800-776-4737</phone>
+      <website>https://www.progressive.com</website>
+      <active>true</active>
+      <deductible_options>100,200,300,500,1000</deductible_options>
+    </record>
+    <record>
+      <name>Allstate</name>
+      <phone>1-800-311-5251</phone>
+      <website>https://www.allstate.com</website>
+      <active>true</active>
+      <deductible_options>100,250,500,1000</deductible_options>
+    </record>
+  </x_467210_rv_app_insurance_provider>
+</data>

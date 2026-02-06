@@ -1,0 +1,284 @@
+{
+  "application": {
+    "name": "RV Glass Insurance Claims",
+    "scope": "x_467210_rv_app",
+    "version": "1.0.0"
+  },
+  "properties": {
+    "x_467210_rv_app.is_pdi_instance": {
+      "value": "true",
+      "type": "true|false",
+      "description": "Set to true if this is a PDI development instance"
+    },
+    "x_467210_rv_app.process_real_payments": {
+      "value": "false",
+      "type": "true|false",
+      "description": "SECURITY: Set to false to disable real payment processing. Do not enable in PDI!"
+    },
+    "x_467210_rv_app.google_maps_enabled": {
+      "value": "false",
+      "type": "true|false",
+      "description": "Enable Google Maps API integration for shop searching"
+    },
+    "x_467210_rv_app.google_maps_api_key": {
+      "value": "",
+      "type": "string",
+      "private": true,
+      "description": "Google Maps API Key - Get from Google Cloud Console"
+    },
+    "x_467210_rv_app.payment_gateway": {
+      "value": "stripe",
+      "type": "choice",
+      "choices": ["stripe", "square", "paypal"],
+      "description": "Payment gateway for processing deductibles"
+    },
+    "x_467210_rv_app.payment_gateway_key": {
+      "value": "",
+      "type": "string",
+      "private": true,
+      "description": "API key for payment gateway - Keep secure!"
+    },
+    "x_467210_rv_app.default_search_radius": {
+      "value": "50",
+      "type": "integer",
+      "description": "Default search radius in miles for nearby repair shops"
+    },
+    "x_467210_rv_app.email_notification_enabled": {
+      "value": "true",
+      "type": "true|false",
+      "description": "Enable email notifications for claim updates"
+    },
+    "x_467210_rv_app.auto_assign_shops": {
+      "value": "true",
+      "type": "true|false",
+      "description": "Automatically assign the best-rated repair shop"
+    },
+    "x_467210_rv_app.shop_sync_interval": {
+      "value": "24",
+      "type": "integer",
+      "description": "Hours between Google Maps shop database syncs"
+    },
+    "x_467210_rv_app.test_mode": {
+      "value": "true",
+      "type": "true|false",
+      "description": "Enable test mode with mock data"
+    }
+  },
+  "installation": {
+    "steps": [
+      {
+        "order": 1,
+        "title": "Import Tables",
+        "description": "Import the RV Glass Claim, Insurance Provider, and Glass Repair Shop tables",
+        "files": [
+          "RV_App/src/Data Model/Tables/RV_Glass_Claim.table.now",
+          "RV_App/src/Data Model/Tables/Insurance_Provider.table.now",
+          "RV_App/src/Data Model/Tables/Glass_Repair_Shop.table.now"
+        ]
+      },
+      {
+        "order": 2,
+        "title": "Import Script Includes",
+        "description": "Import all script include files for business logic",
+        "files": [
+          "RV_App/src/Miscellaneous/Script Includes/GlassClaimProcessor.scriptinclude.now",
+          "RV_App/src/Miscellaneous/Script Includes/GoogleMapsIntegration.scriptinclude.now",
+          "RV_App/src/Miscellaneous/Script Includes/PaymentProcessor.scriptinclude.now"
+        ]
+      },
+      {
+        "order": 3,
+        "title": "Import Business Rules",
+        "description": "Import business rules for automatic calculations",
+        "files": [
+          "RV_App/src/Miscellaneous/Business Rules/Calculate_Insurance_Coverage.br.now"
+        ]
+      },
+      {
+        "order": 4,
+        "title": "Import Workflows",
+        "description": "Import the main claim processing workflow",
+        "files": [
+          "RV_App/src/Miscellaneous/Workflows/Glass_Claim_Processing.workflow.now"
+        ]
+      },
+      {
+        "order": 5,
+        "title": "Import Service Catalog",
+        "description": "Import the claim intake record producer",
+        "files": [
+          "RV_App/src/Service Catalog/Record Producers/RV_Glass_Claim_Intake.recordproducer.now"
+        ]
+      },
+      {
+        "order": 6,
+        "title": "Import UI Components",
+        "description": "Import UI pages and actions",
+        "files": [
+          "RV_App/src/UI Pages/GlassClaimDashboard.uipage.now",
+          "RV_App/src/UI Actions/Submit_to_Insurance.uiaction.now",
+          "RV_App/src/UI Actions/Schedule_Service.uiaction.now",
+          "RV_App/src/UI Actions/Complete_Claim.uiaction.now"
+        ]
+      },
+      {
+        "order": 7,
+        "title": "Configure Application Properties",
+        "description": "Set application properties for your environment",
+        "actions": [
+          "Navigate to System Properties -> RV Glass Insurance Claims",
+          "Configure API keys (optional for Google Maps)",
+          "Verify PDI mode is enabled",
+          "Ensure payment processing is disabled"
+        ]
+      },
+      {
+        "order": 8,
+        "title": "Load Sample Data",
+        "description": "Import sample insurance providers and repair shops",
+        "files": [
+          "RV_App/test_data/insurance_providers.xml",
+          "RV_App/test_data/sample_shops.xml"
+        ]
+      },
+      {
+        "order": 9,
+        "title": "Create Service Catalog",
+        "description": "Add the claim intake to your service catalog",
+        "actions": [
+          "Navigate to Service Catalog",
+          "Create new category: RV Glass Claims",
+          "Add RV Glass Claim Intake as available item"
+        ]
+      },
+      {
+        "order": 10,
+        "title": "Test Application",
+        "description": "Submit a test claim and verify workflow",
+        "actions": [
+          "Submit a test claim via Service Catalog",
+          "Verify automatic shop assignment",
+          "Check workflow progression",
+          "Review claim details in dashboard"
+        ]
+      }
+    ]
+  },
+  "test_data": {
+    "insurance_providers": [
+      {
+        "name": "GEICO",
+        "phone": "1-800-861-8380",
+        "website": "https://www.geico.com",
+        "active": true,
+        "deductible_options": "100,250,500,1000"
+      },
+      {
+        "name": "State Farm",
+        "phone": "1-855-733-8723",
+        "website": "https://www.statefarm.com",
+        "active": true,
+        "deductible_options": "100,250,500,750,1000"
+      },
+      {
+        "name": "Progressive",
+        "phone": "1-800-776-4737",
+        "website": "https://www.progressive.com",
+        "active": true,
+        "deductible_options": "100,200,300,500,1000"
+      },
+      {
+        "name": "Allstate",
+        "phone": "1-800-311-5251",
+        "website": "https://www.allstate.com",
+        "active": true,
+        "deductible_options": "100,250,500,1000"
+      }
+    ],
+    "repair_shops": [
+      {
+        "shop_name": "Sunshine Glass Works",
+        "address": "123 Main St",
+        "city": "Phoenix",
+        "state": "AZ",
+        "latitude": 33.4484,
+        "longitude": -112.0742,
+        "phone": "(602) 555-0101",
+        "website": "https://www.sunshineglass.com",
+        "rating": 4.8,
+        "review_count": 142,
+        "accepts_insurance": true,
+        "shop_type": "fixed_location",
+        "services_offered": "glass repair, glass replacement, windshield repair"
+      },
+      {
+        "shop_name": "Desert Auto Glass",
+        "address": "456 Oak Ave",
+        "city": "Phoenix",
+        "state": "AZ",
+        "latitude": 33.4424,
+        "longitude": -112.0842,
+        "phone": "(602) 555-0102",
+        "website": "https://www.desertautoglass.com",
+        "rating": 4.5,
+        "review_count": 98,
+        "accepts_insurance": true,
+        "shop_type": "both",
+        "services_offered": "glass repair, glass replacement, mobile service"
+      },
+      {
+        "shop_name": "Quick Glass Mobile Service",
+        "address": "789 Pine Rd",
+        "city": "Phoenix",
+        "state": "AZ",
+        "latitude": 33.4564,
+        "longitude": -112.0642,
+        "phone": "(602) 555-0103",
+        "website": "https://www.quickglassmobile.com",
+        "rating": 4.6,
+        "review_count": 156,
+        "accepts_insurance": true,
+        "shop_type": "mobile",
+        "services_offered": "mobile glass replacement, mobile repair service"
+      }
+    ]
+  },
+  "troubleshooting": {
+    "payment_processing_disabled": {
+      "issue": "Payment processing is disabled in PDI",
+      "solution": "This is by design for security. The PaymentProcessor script checks the environment and skips real charges. For production, update the PDI flag in properties.",
+      "severity": "info"
+    },
+    "google_maps_not_working": {
+      "issue": "Shop searches return mock data instead of real results",
+      "solution": "1. Enable Google Maps API: x_467210_rv_app.google_maps_enabled = true\n2. Add your API key: x_467210_rv_app.google_maps_api_key = YOUR_KEY\n3. Restart the application",
+      "severity": "info"
+    },
+    "workflows_not_executing": {
+      "issue": "Claim processing workflow doesn't start automatically",
+      "solution": "1. Verify workflow is enabled in workflow designer\n2. Check that the table is correctly linked to the workflow\n3. Verify business rules are loaded",
+      "severity": "warning"
+    },
+    "claims_not_appearing": {
+      "issue": "Submitted claims don't appear in the system",
+      "solution": "1. Check that the RV Glass Claim table was imported correctly\n2. Verify record producer is linked to correct table\n3. Check user permissions for x_467210_rv_app scope",
+      "severity": "warning"
+    }
+  },
+  "production_checklist": [
+    "[ ] Change is_pdi_instance to false",
+    "[ ] Enable real payment processing (set process_real_payments to true)",
+    "[ ] Configure actual Google Maps API key",
+    "[ ] Set up payment gateway credentials",
+    "[ ] Disable test mode (set test_mode to false)",
+    "[ ] Configure email notifications with production addresses",
+    "[ ] Set up user roles and permissions",
+    "[ ] Load actual insurance provider data",
+    "[ ] Load actual repair shop database",
+    "[ ] Perform security audit of payment data handling",
+    "[ ] Test end-to-end claim submission",
+    "[ ] Train support team on system operation",
+    "[ ] Set up monitoring and logging",
+    "[ ] Document business processes and workflows"
+  ]
+}

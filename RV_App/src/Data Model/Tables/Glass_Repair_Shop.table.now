@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table_schema version="1.0">
+  <table name="x_467210_rv_app_glass_shop">
+    <label>Glass Repair Shop</label>
+    <plural>Glass Repair Shops</plural>
+    <description>Database of RV glass repair shops sourced from Google Maps</description>
+    <fields>
+      <field name="shop_name">
+        <label>Shop Name</label>
+        <type>string</type>
+        <max_length>100</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="shop_type">
+        <label>Shop Type</label>
+        <type>choice</type>
+        <element_choice_values>
+          <choice value="mobile">Mobile Service</choice>
+          <choice value="fixed_location">Fixed Location</choice>
+          <choice value="both">Both Mobile and Fixed</choice>
+        </element_choice_values>
+      </field>
+      <field name="address">
+        <label>Address</label>
+        <type>string</type>
+        <max_length>255</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="city">
+        <label>City</label>
+        <type>string</type>
+        <max_length>100</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="state">
+        <label>State</label>
+        <type>string</type>
+        <max_length>2</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="latitude">
+        <label>Latitude</label>
+        <type>decimal</type>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="longitude">
+        <label>Longitude</label>
+        <type>decimal</type>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="phone">
+        <label>Phone Number</label>
+        <type>phone_number</type>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="website">
+        <label>Website</label>
+        <type>string</type>
+        <max_length>255</max_length>
+      </field>
+      <field name="email">
+        <label>Email</label>
+        <type>email</type>
+      </field>
+      <field name="google_place_id">
+        <label>Google Place ID</label>
+        <type>string</type>
+        <max_length>100</max_length>
+      </field>
+      <field name="rating">
+        <label>Rating</label>
+        <type>decimal</type>
+      </field>
+      <field name="review_count">
+        <label>Review Count</label>
+        <type>integer</type>
+      </field>
+      <field name="hours_of_operation">
+        <label>Hours of Operation</label>
+        <type>string</type>
+        <max_length>500</max_length>
+      </field>
+      <field name="accepts_insurance">
+        <label>Accepts Insurance</label>
+        <type>boolean</type>
+      </field>
+      <field name="warranty_info">
+        <label>Warranty Information</label>
+        <type>string</type>
+        <max_length>500</max_length>
+      </field>
+      <field name="services_offered">
+        <label>Services Offered</label>
+        <type>string</type>
+        <max_length>1000</max_length>
+        <hint>Comma-separated: repair, replacement, mobile service, etc.</hint>
+      </field>
+      <field name="distance_from_claim">
+        <label>Distance (Miles)</label>
+        <type>decimal</type>
+        <read_only>true</read_only>
+      </field>
+      <field name="last_synced">
+        <label>Last Synced from Google Maps</label>
+        <type>date_time</type>
+        <read_only>true</read_only>
+      </field>
+      <field name="active">
+        <label>Active</label>
+        <type>boolean</type>
+        <default>true</default>
+      </field>
+    </fields>
+  </table>
+</table_schema>

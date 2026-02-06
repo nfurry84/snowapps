@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>subscription_auto_renew_field_sys_id</sys_id>
+        <table>x_467210_subscription</table>
+        <element>auto_renew</element>
+        <column_label>Auto Renew</column_label>
+        <internal_type>boolean</internal_type>
+        <active>true</active>
+        <default_value>false</default_value>
+    </sys_dictionary>
+</record_update>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>subscription_renewal_date_field_sys_id</sys_id>
+        <table>x_467210_subscription</table>
+        <element>renewal_date</element>
+        <column_label>Renewal Date</column_label>
+        <internal_type>glide_date</internal_type>
+        <active>true</active>
+    </sys_dictionary>
+</record_update></content>
+<parameter name="filePath">c:\Users\nsfurry\source\SNOWPDI\RV_App\src\Miscellaneous\Dictionary Entries\Subscription Fields.dictionary.now

@@ -1,0 +1,211 @@
+{
+  "name": "RV Glass Insurance Claims",
+  "version": "1.0.0",
+  "description": "Insurance claims management system for RV glass repairs and replacements",
+  "author": "RV Services Team",
+  "scope": "x_467210_rv_app",
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2026-02-06",
+      "changes": [
+        "Initial release",
+        "Glass claim intake form",
+        "Automated shop assignment via Google Maps integration",
+        "Deductible payment processing (disabled in PDI)",
+        "Claims management dashboard",
+        "Workflow automation"
+      ]
+    }
+  ],
+  "features": {
+    "claim_intake": {
+      "description": "Intake form for new glass insurance claims",
+      "record_producer": "RV Glass Claim Intake",
+      "enabled": true
+    },
+    "automatic_shop_assignment": {
+      "description": "Automatically finds and assigns nearby repair shops",
+      "integration": "Google Maps API",
+      "mock_data_enabled": true,
+      "enabled": true
+    },
+    "deductible_payment": {
+      "description": "Process deductible payments (Disabled in PDI)",
+      "payment_gateway": "stripe",
+      "enabled_in_pdi": false,
+      "test_mode": true
+    },
+    "claims_dashboard": {
+      "description": "Central dashboard for managing claims",
+      "ui_page": "GlassClaimDashboard",
+      "enabled": true
+    },
+    "insurance_provider_integration": {
+      "description": "Integration with insurance providers",
+      "api_capable": true,
+      "enabled": true
+    }
+  },
+  "tables": [
+    {
+      "name": "x_467210_rv_app_glass_claim",
+      "label": "RV Glass Claim",
+      "extends": "task",
+      "description": "Insurance claims for RV glass repairs and replacements"
+    },
+    {
+      "name": "x_467210_rv_app_insurance_provider",
+      "label": "Insurance Provider",
+      "description": "Insurance providers and their plan details"
+    },
+    {
+      "name": "x_467210_rv_app_glass_shop",
+      "label": "Glass Repair Shop",
+      "description": "Database of RV glass repair shops sourced from Google Maps"
+    }
+  ],
+  "script_includes": [
+    {
+      "name": "GlassClaimProcessor",
+      "description": "Handles glass claim validation, calculation, and processing"
+    },
+    {
+      "name": "GoogleMapsIntegration",
+      "description": "Handles integration with Google Maps API for shop location searching"
+    },
+    {
+      "name": "PaymentProcessor",
+      "description": "Handles payment processing for claim deductibles (disabled in PDI)"
+    }
+  ],
+  "workflows": [
+    {
+      "name": "RV Glass Claim Processing Workflow",
+      "table": "x_467210_rv_app_glass_claim",
+      "description": "Main workflow for processing RV glass insurance claims from intake to completion"
+    }
+  ],
+  "ui_actions": [
+    {
+      "name": "Submit to Insurance",
+      "table": "x_467210_rv_app_glass_claim",
+      "description": "Submit claim to insurance provider for approval"
+    },
+    {
+      "name": "Schedule Service",
+      "table": "x_467210_rv_app_glass_claim",
+      "description": "Contact repair shop and schedule service"
+    },
+    {
+      "name": "Complete Claim",
+      "table": "x_467210_rv_app_glass_claim",
+      "description": "Mark claim as completed after service"
+    }
+  ],
+  "configuration": {
+    "google_maps": {
+      "enabled": false,
+      "api_key": "YOUR_GOOGLE_MAPS_API_KEY",
+      "use_mock_data": true,
+      "search_radius_miles": 50
+    },
+    "payment_processing": {
+      "enabled": false,
+      "gateway": "stripe",
+      "test_mode": true,
+      "api_key": "YOUR_PAYMENT_API_KEY"
+    },
+    "pdi_environment": {
+      "is_pdi": true,
+      "allow_real_charges": false,
+      "mock_mode": true
+    },
+    "email_notifications": {
+      "enabled": true,
+      "from_address": "rv.claims@company.com",
+      "templates": [
+        "rv_glass_claim_shop_notification",
+        "rv_glass_claim_completion_notification",
+        "rv_glass_claim_payment_failed_notification",
+        "rv_glass_claim_denied_notification"
+      ]
+    },
+    "insurance_providers": {
+      "auto_sync": true,
+      "sync_interval_hours": 24,
+      "supported": [
+        "GEICO",
+        "State Farm",
+        "Progressive",
+        "Allstate",
+        "Nationwide",
+        "Custom Providers"
+      ]
+    }
+  },
+  "dependencies": {
+    "servicenow_version": "Zurich",
+    "required_plugins": [
+      "com.snc.service_catalog",
+      "com.glide.workflow",
+      "com.glide.notification"
+    ],
+    "optional_plugins": [
+      "com.glide.mobile_platform",
+      "com.glide.portal"
+    ]
+  },
+  "security": {
+    "roles": [
+      {
+        "name": "glass_claim_admin",
+        "description": "Administrator for glass claims",
+        "permissions": [
+          "create",
+          "read",
+          "update",
+          "delete",
+          "approve"
+        ]
+      },
+      {
+        "name": "glass_claim_user",
+        "description": "User can submit and view own claims",
+        "permissions": [
+          "create",
+          "read"
+        ]
+      },
+      {
+        "name": "shop_manager",
+        "description": "Manage repair shops and assignments",
+        "permissions": [
+          "read",
+          "update",
+          "schedule"
+        ]
+      }
+    ]
+  },
+  "installation_steps": [
+    "1. Import all table definitions",
+    "2. Configure insurance providers in the Insurance Provider table",
+    "3. Set application properties in system configuration",
+    "4. Add API keys for Google Maps (if using real API)",
+    "5. Configure payment gateway credentials (for production only)",
+    "6. Create notification email templates",
+    "7. Set up user roles and permissions",
+    "8. Test claim submission via service catalog",
+    "9. Verify workflows and automation",
+    "10. Deploy to production when ready"
+  ],
+  "testing": {
+    "pdi_mode": "ENABLED",
+    "test_data_included": true,
+    "sample_claims": 3,
+    "sample_shops": 5,
+    "sample_providers": 4,
+    "notes": "All payment processing is disabled in PDI. Use test mode for all integrations."
+  }
+}

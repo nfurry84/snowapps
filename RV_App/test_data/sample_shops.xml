@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <x_467210_rv_app_glass_shop>
+    <record>
+      <shop_name>Sunshine Glass Works</shop_name>
+      <shop_type>fixed_location</shop_type>
+      <address>123 Main Street</address>
+      <city>Phoenix</city>
+      <state>AZ</state>
+      <latitude>33.4484</latitude>
+      <longitude>-112.0742</longitude>
+      <phone>(602) 555-0101</phone>
+      <website>https://www.sunshineglass.com</website>
+      <email>contact@sunshineglass.com</email>
+      <google_place_id>ChIJmxQWtJ_0zYARfkVhQKb3-LE</google_place_id>
+      <rating>4.8</rating>
+      <review_count>142</review_count>
+      <hours_of_operation>Mon-Fri: 7:00 AM - 6:00 PM, Sat: 8:00 AM - 4:00 PM, Sun: Closed</hours_of_operation>
+      <accepts_insurance>true</accepts_insurance>
+      <warranty_info>Lifetime warranty on windshield, 1 year on other glass</warranty_info>
+      <services_offered>windshield repair, windshield replacement, side window repair, side window replacement, roof window repair</services_offered>
+      <active>true</active>
+    </record>
+    <record>
+      <shop_name>Desert Auto Glass</shop_name>
+      <shop_type>both</shop_type>
+      <address>456 Oak Avenue</address>
+      <city>Phoenix</city>
+      <state>AZ</state>
+      <latitude>33.4424</latitude>
+      <longitude>-112.0842</longitude>
+      <phone>(602) 555-0102</phone>
+      <website>https://www.desertautoglass.com</website>
+      <email>service@desertautoglass.com</email>
+      <google_place_id>ChIJVb0HmJPzzYAR8GHLnE9-bXI</google_place_id>
+      <rating>4.5</rating>
+      <review_count>98</review_count>
+      <hours_of_operation>Mon-Fri: 7:30 AM - 5:30 PM, Sat: 9:00 AM - 2:00 PM, Sun: Closed</hours_of_operation>
+      <accepts_insurance>true</accepts_insurance>
+      <warranty_info>2 year warranty on all glass replacement</warranty_info>
+      <services_offered>windshield replacement, side window repair, side window replacement, mobile service available</services_offered>
+      <active>true</active>
+    </record>
+    <record>
+      <shop_name>Quick Glass Mobile Service</shop_name>
+      <shop_type>mobile</shop_type>
+      <address>789 Pine Road</address>
+      <city>Phoenix</city>
+      <state>AZ</state>
+      <latitude>33.4564</latitude>
+      <longitude>-112.0642</longitude>
+      <phone>(602) 555-0103</phone>
+      <website>https://www.quickglassmobile.com</website>
+      <email>schedule@quickglassmobile.com</email>
+      <google_place_id>ChIJY3b_qZL0zYARMR9xDJ_vL0c</google_place_id>
+      <rating>4.6</rating>
+      <review_count>156</review_count>
+      <hours_of_operation>Mobile service available 7 AM - 7 PM, 7 days a week</hours_of_operation>
+      <accepts_insurance>true</accepts_insurance>
+      <warranty_info>1 year warranty on mobile installations</warranty_info>
+      <services_offered>mobile windshield replacement, mobile window repair, mobile window replacement, emergency service available</services_offered>
+      <active>true</active>
+    </record>
+    <record>
+      <shop_name>Arizona Glass and Repair Center</shop_name>
+      <shop_type>fixed_location</shop_type>
+      <address>321 Commerce Boulevard</address>
+      <city>Tempe</city>
+      <state>AZ</state>
+      <latitude>33.4273</latitude>
+      <longitude>-111.9440</longitude>
+      <phone>(480) 555-0104</phone>
+      <website>https://www.arizglassrepair.com</website>
+      <email>info@arizglassrepair.com</email>
+      <google_place_id>ChIJ2dFBqaH1zYARLN5Dk-kXJ_4</google_place_id>
+      <rating>4.7</rating>
+      <review_count>124</review_count>
+      <hours_of_operation>Mon-Fri: 8:00 AM - 5:00 PM, Sat: 9:00 AM - 1:00 PM, Sun: Closed</hours_of_operation>
+      <accepts_insurance>true</accepts_insurance>
+      <warranty_info>Lifetime warranty on windshield, 1 year on other repairs</warranty_info>
+      <services_offered>windshield replacement, windshield repair, all window types, RV specialty</services_offered>
+      <active>true</active>
+    </record>
+    <record>
+      <shop_name>Crystal Clear RV Glass Specialists</shop_name>
+      <shop_type>both</shop_type>
+      <address>555 Industrial Parkway</address>
+      <city>Chandler</city>
+      <state>AZ</state>
+      <latitude>33.3062</latitude>
+      <longitude>-111.8413</longitude>
+      <phone>(480) 555-0105</phone>
+      <website>https://www.crystalclearrvglass.com</website>
+      <email>hello@crystalclearrvglass.com</email>
+      <google_place_id>ChIJGfKb9Z70zYARNDvCxMZmTOc</google_place_id>
+      <rating>4.9</rating>
+      <review_count>189</review_count>
+      <hours_of_operation>Mon-Sat: 7:00 AM - 6:00 PM, Sun: By appointment only</hours_of_operation>
+      <accepts_insurance>true</accepts_insurance>
+      <warranty_info>Lifetime warranty on all RV glass replacements</warranty_info>
+      <services_offered>RV windshield specialist, RV window replacement, mobile RV glass service, 24/7 emergency service</services_offered>
+      <active>true</active>
+    </record>
+  </x_467210_rv_app_glass_shop>
+</data>

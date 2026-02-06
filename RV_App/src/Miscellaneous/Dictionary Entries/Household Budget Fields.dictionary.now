@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>budget_name_field_sys_id</sys_id>
+        <table>x_467210_household_budget</table>
+        <element>budget_name</element>
+        <column_label>Budget Name</column_label>
+        <internal_type>string</internal_type>
+        <active>true</active>
+        <mandatory>true</mandatory>
+    </sys_dictionary>
+</record_update>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>user_field_sys_id</sys_id>
+        <table>x_467210_household_budget</table>
+        <element>user</element>
+        <column_label>User</column_label>
+        <internal_type>reference</internal_type>
+        <reference>x_1550250c70a0a0b00894c6c2e4b8a3a</reference>
+        <active>true</active>
+        <mandatory>true</mandatory>
+    </sys_dictionary>
+</record_update>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>created_on_field_sys_id</sys_id>
+        <table>x_467210_household_budget</table>
+        <element>created_on</element>
+        <column_label>Created On</column_label>
+        <internal_type>glide_date_time</internal_type>
+        <active>true</active>
+        <default_value>javascript:gs.nowDateTime()</default_value>
+    </sys_dictionary>
+</record_update>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>status_field_sys_id</sys_id>
+        <table>x_467210_household_budget</table>
+        <element>status</element>
+        <column_label>Status</column_label>
+        <internal_type>choice</internal_type>
+        <active>true</active>
+        <choice>draft</choice>
+        <choice>active</choice>
+        <choice>archived</choice>
+    </sys_dictionary>
+</record_update>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>version_field_sys_id</sys_id>
+        <table>x_467210_household_budget</table>
+        <element>version</element>
+        <column_label>Version</column_label>
+        <internal_type>integer</internal_type>
+        <active>true</active>
+        <default_value>1</default_value>
+    </sys_dictionary>
+</record_update>
+<record_update table="sys_dictionary">
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <sys_id>parent_budget_field_sys_id</sys_id>
+        <table>x_467210_household_budget</table>
+        <element>parent_budget</element>
+        <column_label>Parent Budget</column_label>
+        <internal_type>reference</internal_type>
+        <reference>x_467210_household_budget</reference>
+        <active>true</active>
+    </sys_dictionary>
+</record_update></content>
+<parameter name="filePath">c:\Users\nsfurry\source\SNOWPDI\RV_App\src\Miscellaneous\Dictionary Entries\Household Budget Fields.dictionary.now

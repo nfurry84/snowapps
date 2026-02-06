@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table_schema version="1.0">
+  <table name="x_467210_rv_app_glass_claim">
+    <label>RV Glass Claim</label>
+    <plural>RV Glass Claims</plural>
+    <description>Insurance claims for RV glass repairs and replacements</description>
+    <extends>task</extends>
+    <fields>
+      <!-- Contact Information -->
+      <field name="contact_name">
+        <label>Contact Name</label>
+        <type>string</type>
+        <max_length>100</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="contact_phone">
+        <label>Contact Phone</label>
+        <type>phone_number</type>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="contact_email">
+        <label>Contact Email</label>
+        <type>email</type>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="contact_address">
+        <label>Service Address</label>
+        <type>string</type>
+        <max_length>255</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      
+      <!-- Vehicle Information -->
+      <field name="vehicle_year">
+        <label>RV Year</label>
+        <type>integer</type>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="vehicle_make">
+        <label>RV Make</label>
+        <type>string</type>
+        <max_length>50</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="vehicle_model">
+        <label>RV Model</label>
+        <type>string</type>
+        <max_length>100</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="vin">
+        <label>VIN</label>
+        <type>string</type>
+        <max_length>17</max_length>
+      </field>
+      
+      <!-- Claim Information -->
+      <field name="glass_type">
+        <label>Glass Type</label>
+        <type>choice</type>
+        <mandatory>true</mandatory>
+        <element_choice_values>
+          <choice value="windshield">Windshield</choice>
+          <choice value="side_window">Side Window</choice>
+          <choice value="rear_window">Rear Window</choice>
+          <choice value="roof_window">Roof Window/Skylight</choice>
+          <choice value="multi">Multiple</choice>
+        </element_choice_values>
+      </field>
+      <field name="claim_type">
+        <label>Claim Type</label>
+        <type>choice</type>
+        <mandatory>true</mandatory>
+        <element_choice_values>
+          <choice value="repair">Repair</choice>
+          <choice value="replacement">Replacement</choice>
+          <choice value="both">Repair and Replacement</choice>
+        </element_choice_values>
+      </field>
+      <field name="damage_description">
+        <label>Damage Description</label>
+        <type>string</type>
+        <max_length>1000</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      
+      <!-- Insurance Information -->
+      <field name="insurance_provider">
+        <label>Insurance Provider</label>
+        <type>reference</type>
+        <reference_table>x_467210_rv_app_insurance_provider</reference_table>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="policy_number">
+        <label>Policy Number</label>
+        <type>string</type>
+        <max_length>50</max_length>
+        <mandatory>true</mandatory>
+      </field>
+      <field name="plan_name">
+        <label>Plan Name</label>
+        <type>string</type>
+        <max_length>100</max_length>
+      </field>
+      <field name="deductible_amount">
+        <label>Deductible Amount</label>
+        <type>currency</type>
+        <mandatory>true</mandatory>
+      </field>
+      
+      <!-- Payment Information -->
+      <field name="payment_method">
+        <label>Payment Method</label>
+        <type>choice</type>
+        <mandatory>true</mandatory>
+        <element_choice_values>
+          <choice value="credit_card">Credit Card</choice>
+          <choice value="debit_card">Debit Card</choice>
+          <choice value="invoice">Invoice</choice>
+        </element_choice_values>
+      </field>
+      <field name="card_last_four">
+        <label>Card Last Four Digits</label>
+        <type>string</type>
+        <max_length>4</max_length>
+      </field>
+      <field name="card_encrypted">
+        <label>Encrypted Card Data</label>
+        <type>string</type>
+        <read_only>true</read_only>
+      </field>
+      
+      <!-- Repair Shop Information -->
+      <field name="assigned_shop">
+        <label>Assigned Repair Shop</label>
+        <type>reference</type>
+        <reference_table>x_467210_rv_app_glass_shop</reference_table>
+      </field>
+      <field name="shop_contact_name">
+        <label>Shop Contact Name</label>
+        <type>string</type>
+        <max_length>100</max_length>
+      </field>
+      <field name="shop_phone">
+        <label>Shop Phone</label>
+        <type>phone_number</type>
+      </field>
+      <field name="shop_address">
+        <label>Shop Address</label>
+        <type>string</type>
+        <max_length>255</max_length>
+      </field>
+      <field name="shop_latitude">
+        <label>Shop Latitude</label>
+        <type>decimal</type>
+      </field>
+      <field name="shop_longitude">
+        <label>Shop Longitude</label>
+        <type>decimal</type>
+      </field>
+      
+      <!-- Estimated Cost -->
+      <field name="estimated_cost">
+        <label>Estimated Cost</label>
+        <type>currency</type>
+      </field>
+      <field name="insurance_covers">
+        <label>Insurance Covers</label>
+        <type>currency</type>
+      </field>
+      <field name="customer_responsibility">
+        <label>Customer Responsibility</label>
+        <type>currency</type>
+      </field>
+      
+      <!-- Status Tracking -->
+      <field name="glass_claim_status">
+        <label>Claim Status</label>
+        <type>choice</type>
+        <element_choice_values>
+          <choice value="intake">Intake</choice>
+          <choice value="validated">Validated</choice>
+          <choice value="shop_assigned">Shop Assigned</choice>
+          <choice value="scheduled">Scheduled</choice>
+          <choice value="in_progress">In Progress</choice>
+          <choice value="completed">Completed</choice>
+          <choice value="denied">Denied</choice>
+        </element_choice_values>
+      </field>
+      <field name="approval_status">
+        <label>Insurance Approval Status</label>
+        <type>choice</type>
+        <element_choice_values>
+          <choice value="pending">Pending</choice>
+          <choice value="approved">Approved</choice>
+          <choice value="denied">Denied</choice>
+        </element_choice_values>
+      </field>
+      <field name="scheduled_date">
+        <label>Service Scheduled Date</label>
+        <type>date_time</type>
+      </field>
+      <field name="completion_date">
+        <label>Service Completion Date</label>
+        <type>date_time</type>
+      </field>
+    </fields>
+  </table>
+</table_schema>

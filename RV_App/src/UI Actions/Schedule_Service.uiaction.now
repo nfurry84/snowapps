@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui_action>
+  <name>Schedule Service</name>
+  <label>Schedule Service</label>
+  <table>x_467210_rv_app_glass_claim</table>
+  <condition>glass_claim_status=shop_assigned^approval_status=approved</condition>
+  <hover_text>Contact the assigned repair shop and schedule the service appointment</hover_text>
+  <order>200</order>
+  <script>
+    (function() {
+      try {
+        var claimGR = new GlideRecord('x_467210_rv_app_glass_claim');
+        claimGR.get(current.sys_id);
+        
+        // Verify shop is assigned
+        if (!claimGR.assigned_shop) {
+          gs.warn('No repair shop assigned. Please assign a shop first.');
+          return false;
+        }
+        
+        // Update status
+        claimGR.glass_claim_status = 'scheduled';
+        claimGR.comments = claimGR.comments + '\nService scheduled with ' + claimGR.shop_contact_name;
+        claimGR.update();
+        
+        // Create service task for shop
+        var taskGR = new GlideRecord('task');
+        taskGR.initialize();
+        taskGR.short_description = 'Schedule RV Glass Service: ' + claimGR.contact_name;
+        taskGR.description = 'Contact shop and schedule service appointment\n' +
+                           'Shop: ' + claimGR.shop_contact_name + '\n' +
+                           'Phone: ' + claimGR.shop_phone + '\n' +
+                           'Address: ' + claimGR.shop_address + '\n' +
+                           'Customer: ' + claimGR.contact_name + '\n' +
+                           'Customer Phone: ' + claimGR.contact_phone;
+        taskGR.assignment_group = gs.getUserID();
+        taskGR.priority = '2';
+        taskGR.insert();
+        
+        gs.addInfoMessage('Service appointment scheduled');
+      } catch (e) {
+        gs.error('Error scheduling service: ' + e.message);
+      }
+    })();
+  </script>
+</ui_action>
