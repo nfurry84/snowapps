@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_applicability_m2m_list">
+    <sys_ux_applicability_m2m_list action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability display_value="RV_App Audience">56175320937232101fd8fa845d03d66c</applicability>
+        <list display_value="All">16175320937232101fd8fa845d03d6b6</list>
+        <order>0</order>
+        <sys_class_name>sys_ux_applicability_m2m_list</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-29 14:50:33</sys_created_on>
+        <sys_id>5a175320937232101fd8fa845d03d6b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="RV_App" source="x_467210_rv_app">9d179fec933232101fd8fa845d03d6fb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RV_App">9d179fec933232101fd8fa845d03d6fb</sys_scope>
+        <sys_update_name>sys_ux_applicability_m2m_list_5a175320937232101fd8fa845d03d6b9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-29 14:50:33</sys_updated_on>
+    </sys_ux_applicability_m2m_list>
+</record_update>

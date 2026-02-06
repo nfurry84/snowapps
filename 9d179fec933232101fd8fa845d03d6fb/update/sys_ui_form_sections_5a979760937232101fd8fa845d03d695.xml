@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="5a979760937232101fd8fa845d03d695" sys_domain="global" table="x_467210_rv_app_request" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-01-29 14:52:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1a979760937232101fd8fa845d03d6c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_467210_rv_app_request" name="x_467210_rv_app_request" sys_domain="global" view="Default view">5a979760937232101fd8fa845d03d695</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_467210_rv_app_request" sys_domain="global" view="Default view">9e979760937232101fd8fa845d03d69a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-01-29 14:52:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-01-29 14:52:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>96979760937232101fd8fa845d03d6d0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_467210_rv_app_request" name="x_467210_rv_app_request" sys_domain="global" view="Default view">5a979760937232101fd8fa845d03d695</sys_ui_form>
+            <sys_ui_section caption="Notes" display_value="Notes" name="x_467210_rv_app_request" sys_domain="global" view="Default view">da979760937232101fd8fa845d03d6c8</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-01-29 14:52:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_467210_rv_app_request</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-01-29 14:52:43</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5a979760937232101fd8fa845d03d695</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_467210_rv_app_request</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="RV_App" source="x_467210_rv_app">9d179fec933232101fd8fa845d03d6fb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="RV_App">9d179fec933232101fd8fa845d03d6fb</sys_scope>
+            <sys_update_name>sys_ui_form_sections_5a979760937232101fd8fa845d03d695</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-01-29 14:52:43</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>
